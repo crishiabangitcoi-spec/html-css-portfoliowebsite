@@ -258,6 +258,49 @@ body {
     letter-spacing: -3px;
 }
 
+.next-page-button {
+    position: fixed;
+    top: 50%;
+    right: 8%;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ff4fa3;
+    border-radius: 50%;
+    color: #ff4fa3;
+    font-size: 24px;
+    line-height: 1;
+    text-decoration: none;
+    transform: translateY(-50%);
+    transition: 0.3s;
+}
+
+.next-page-button:hover,
+.next-page-button:focus-visible {
+    background: #ff4fa3;
+    color: white;
+    transform: translate(4px, -50%);
+    box-shadow: 0 10px 25px rgba(255, 79, 163, 0.3);
+}
+
+.next-page-button:focus-visible {
+    outline: 2px solid #d783ff;
+    outline-offset: 3px;
+}
+
+.interests-next-button {
+    top: auto;
+    bottom: 45px;
+    transform: none;
+}
+
+.interests-next-button:hover,
+.interests-next-button:focus-visible {
+    transform: translateX(4px);
+}
+
 
 /*ABOUT*/
 
@@ -362,6 +405,7 @@ body {
     border: 1px solid #382142;
     border-radius: 25px;
 
+    cursor: pointer;
     transition: 0.3s;
 }
 
@@ -372,6 +416,11 @@ body {
         0 20px 45px rgba(255, 48, 142, 0.18);
 }
 
+.skill-card:focus-visible {
+    outline: 2px solid #ff4fa3;
+    outline-offset: 2px;
+}
+
 .skill-card span {
     color: #d783ff;
     font-size: 12px;
@@ -380,52 +429,101 @@ body {
 .skill-card h2 {
     margin-top: 45px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
-.skill-card p {
+.skill-card.active {
+    background: linear-gradient(145deg, #9c2ccc, #ed287f);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff7fd;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(255, 79, 163, 0.3);
+}
+
+.skill-card.active span,
+.skill-card.active h2,
+.skill-card.active .skill-description {
+    color: #fff7fd;
+}
+
+.skill-description {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0;
     color: #c8b4d2;
     font-size: 14px;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    justify-content: center;
+}
+
+.skill-card.active .skill-description {
+    max-height: 80px;
+    opacity: 1;
+    margin-top: 8px;
 }
 
 
 /*INTERESTS*/
 
+.interests-slider {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    cursor: grab;
+}
+
+.interests-slider::-webkit-scrollbar {
+    display: none;
+}
+
 .interests-grid {
     display: flex;
     gap: 25px;
-    max-width: 1100px;
-    margin: 0 auto;
-    justify-content: center;
+    width: max-content;
+    padding: 10px 0 18px;
 }
 
 .interest-card {
-    flex: 0 1 320px;
-
+    flex: 0 0 320px;
     min-height: 330px;
-
     padding: 35px;
-
     background: #17101d;
-
     border: 1px solid #382142;
     border-radius: 30px;
-
-    transition: 0.3s;
+    scroll-snap-align: center;
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
 .interest-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px) scale(1.02);
     box-shadow: 0 20px 45px rgba(255, 48, 142, 0.18);
 }
 
-.interest-card.featured {
+.interest-card.active {
     background: linear-gradient(145deg, #9c2ccc, #ed287f);
     color: #fff7fd;
-    transform: translateY(-12px);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(255, 79, 163, 0.3);
+}
+
+.interest-card.active span,
+.interest-card.active h2,
+.interest-card.active p {
+    color: #fff7fd;
+}
+
+.interest-card.featured {
+    background: #17101d;
+    color: #fff7fd;
 }
 
 .interest-card.featured:hover {
-    transform: translateY(-20px);
+    transform: translateY(-18px) scale(1.02);
 }
 
 .icon {
@@ -646,6 +744,10 @@ footer {
 
     .page {
         padding: 40px 20px;
+    }
+
+    .next-page-button {
+        right: 20px;
     }
 
     .contact-form {

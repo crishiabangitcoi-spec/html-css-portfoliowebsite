@@ -28,50 +28,109 @@
 
     <div class="page-heading">
         <p>INTERESTS</p>
-        <h1>What keeps me inspired.</h1>
+        <h1>Exploring my interests.</h1>
     </div>
 
-    <div class="interests-grid">
+    <div class="interests-slider">
+        <div class="interests-grid">
 
-        <div class="interest-card">
-            <div class="icon">1</div>
+            <div class="interest-card">
+                <div class="icon">1</div>
 
-            <span>TECHNOLOGY</span>
+                <span>TECHNOLOGY</span>
 
-            <h2>Web Development</h2>
+                <h2>Softwares</h2>
 
-            <p>
-                I enjoy learning how websites are designed,
-                structured, and made interactive.
-            </p>
+                <p>
+                    I enjoy learning new technologies, software, and digital tools that enhance productivity and creativity
+                </p>
+            </div>
+
+            <div class="interest-card">
+                <div class="icon">2</div>
+
+                <span>SPORTS</span>
+                <h2>Volleyball</h2>
+
+                <p>
+                    Volleyball helps me develop teamwork,
+                    discipline, confidence, and determination.
+                </p>
+            </div>
+
+            <div class="interest-card">
+                <div class="icon">3</div>
+
+                <span>CREATIVITY</span>
+
+                <h2>Creative Ideas</h2>
+
+                <p>
+                    I enjoy exploring visual designs, creative
+                    concepts, and new ideas.
+                </p>
+            </div>
+
+            <div class="interest-card">
+                <div class="icon">4</div>
+
+                <span>WEB DEVELOPMENT</span>
+
+                <h2>Web Creation</h2>
+
+                <p>
+                    I enjoy building ideas into interactive experiences and functional websites.
+                </p>
+            </div>
+ 
+            <div class="interest-card">
+                <div class="icon">5</div>
+
+                <span>PROGRAMMING</span>
+
+                <h2>Coding</h2>
+
+                <p>
+                    I enjoy learning programming languages and writing code to create useful applications and solve different problems.
+                </p>
+            </div>
+
+            <div class="interest-card">
+                <div class="icon">6</div>
+
+                <span>MOBILE APP DEVELOPMENT</span>
+
+                <h2>Creating Apps</h2>
+
+                <p>
+                    I am interested in developing mobile applications that make everyday tasks easier and provide helpful solutions for users.
+                </p>
+            </div>
+
+
         </div>
-
-        <div class="interest-card featured">
-            <div class="icon">2</div>
-
-            <span>SPORTS</span>
-            <h2>Volleyball</h2>
-
-            <p>
-                Volleyball helps me develop teamwork,
-                discipline, confidence, and determination.
-            </p>
-        </div>
-
-        <div class="interest-card">
-            <div class="icon">3</div>
-
-            <span>CREATIVITY</span>
-
-            <h2>Creative Ideas</h2>
-
-            <p>
-                I enjoy exploring visual designs, creative
-                concepts, and new ideas.
-            </p>
-        </div>
-
     </div>
+
+    <a class="next-page-button interests-next-button" href="contact.html" aria-label="Go to Contact" title="Go to Contact">
+        <span aria-hidden="true">→</span>
+    </a>
+
+    <script>
+        const slider = document.querySelector('.interests-slider');
+        const cards = document.querySelectorAll('.interest-card');
+
+        if (slider && cards.length) {
+            cards.forEach((card) => {
+                card.addEventListener('click', () => {
+                    cards.forEach((item) => item.classList.remove('active'));
+                    card.classList.add('active');
+                    card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                });
+            });
+
+            // No card is highlighted by default; the active card appears only after user interaction.
+        }
+    </script>
 
 </main>
 
@@ -81,4 +140,3 @@
 
 </body>
 </html>
-```

@@ -33,71 +33,103 @@
 
     <div class="skills-grid">
 
-        <div class="skill-card">
+        <div class="skill-card" tabindex="0" role="button" aria-expanded="false">
             <span>01</span>
             <h2>Basic HTML</h2>
-            <p>
+            <p class="skill-description">
                 Creating structured and meaningful webpages.
             </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill-card" tabindex="0" role="button" aria-expanded="false">
             <span>02</span>
             <h2>Basic CSS</h2>
-            <p>
+            <p class="skill-description">
                 Designing attractive layouts and interfaces.
             </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill-card" tabindex="0" role="button" aria-expanded="false">
             <span>03</span>
             <h2>Java</h2>
-            <p>
+            <p class="skill-description">
                 Practicing programming logic and problem solving.
             </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill-card" tabindex="0" role="button" aria-expanded="false">
             <span>04</span>
-            <h2> Basic SQL</h2>
-            <p>
+            <h2>Basic SQL</h2>
+            <p class="skill-description">
                 Working with databases and writing queries.
             </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill-card" tabindex="0" role="button" aria-expanded="false">
             <span>05</span>
             <h2>UI/UX</h2>
-            <p>
+            <p class="skill-description">
                 Creating simple and user-friendly interfaces.
             </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill-card" tabindex="0" role="button" aria-expanded="false">
             <span>06</span>
             <h2>Teamwork</h2>
-            <p>
+            <p class="skill-description">
                 Ability to work well and cooperate with others.
             </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill-card" tabindex="0" role="button" aria-expanded="false">
             <span>07</span>
             <h2>Time Management</h2>
-            <p>
+            <p class="skill-description">
                 Effectively managing time to meet deadlines and goals.
             </p>
         </div>
 
-        <div class="skill-card">
+        <div class="skill-card" tabindex="0" role="button" aria-expanded="false">
             <span>08</span>
             <h2>Creativity</h2>
-            <p>
+            <p class="skill-description">
                 Ability to develop new and useful ideas and solutions.
             </p>
         </div>
 
     </div>
+
+    <a class="next-page-button" href="interest.html" aria-label="Go to Interests" title="Go to Interests">
+        <span aria-hidden="true">→</span>
+    </a>
+
+    <script>
+        const skillCards = document.querySelectorAll('.skill-card');
+
+        skillCards.forEach((card) => {
+            const toggleCard = () => {
+                const isActive = card.classList.contains('active');
+
+                skillCards.forEach((item) => {
+                    item.classList.remove('active');
+                    item.setAttribute('aria-expanded', 'false');
+                });
+
+                if (!isActive) {
+                    card.classList.add('active');
+                    card.setAttribute('aria-expanded', 'true');
+                }
+            };
+
+            card.addEventListener('click', toggleCard);
+            card.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleCard();
+                }
+            });
+        });
+    </script>
 
 </main>
 
