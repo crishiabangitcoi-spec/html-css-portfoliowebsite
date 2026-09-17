@@ -748,9 +748,25 @@ footer {
 
     .hero-content,
     .about-layout,
-    .interests-grid,
     .contact-layout {
         flex-direction: column;
+    }
+
+    .interests-slider {
+        overflow-x: visible;
+    }
+
+    .interests-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        width: 100%;
+        gap: 20px;
+    }
+
+    .interest-card {
+        flex: 1 1 100%;
+        width: 100%;
+        min-width: 0;
     }
 
     .hero-content {
